@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "881c40c5-e024-435a-9613-e8af343c6401",
+		"name": "UserProfile Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"sanket\",\n    \"password\":\"Letmein123@\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/user?username=sanket11",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE3MzU2MzMsInVzZXJfbmFtZSI6IlNhbmtldCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiIwZWU5ODQ1ZS1mZTFjLTRmZjctYjdmNy1lNDViYjhhZDIyMzEiLCJjbGllbnRfaWQiOiJzeW5jaHJvbnkiLCJzY29wZSI6WyJ1c2VyX2luZm8iXX0.FVlne5RgSGPTuqgwKwXrZRh52hJBIOEE1WYjMdjCCiQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorize",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/oauth/authorize?client_id=javadevjournal&response_type=code&scope=user_info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "javadevjournal"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "user_info"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/token",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE1ODAzMjQsInVzZXJfbmFtZSI6IlNoYXVyeWFhMSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiJhOGY3MjUxMi1kYmRjLTQ1YWEtOTZmZS00ZWYwMTliZDU3NzciLCJjbGllbnRfaWQiOiJzeW5jaHJvbnkiLCJzY29wZSI6WyJ1c2VyX2luZm8iXX0.Y0CozOSexXqu-DogZXJslqJb5W-7vFWyPSDh_eA6XGo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "TestModeDebugHeader",
+						"value": "true"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\":\"https://cdn.maikoapp.com/3d4b/4quqa/150.jpg\"\r\n            \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/uploadImage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"uploadImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view image",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE3MzQ3MjQsInVzZXJfbmFtZSI6IlNhbmtldCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiJiZGJjMWJkZS00MmExLTQ1NjktODA3Ni1jMWU1NTM0ZDE1ODAiLCJjbGllbnRfaWQiOiJzeW5jaHJvbnkiLCJzY29wZSI6WyJ1c2VyX2luZm8iXX0.1kgd5Qc18jsuIGB20NHRn0UdoJzqJx27jV1-wT_mPtI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "TestModeDebugHeader",
+						"value": "true"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE3MTA0MzIsInVzZXJfbmFtZSI6IlNoYXVyeWFhMSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiIzNzQ5YzNjNi05YWVmLTQ1NDctYTFmZS01N2U0ODc0Y2JiYTYiLCJjbGllbnRfaWQiOiJzeW5jaHJvbnkiLCJzY29wZSI6WyJ1c2VyX2luZm8iXX0.LRGmFce2DfDpt5CPhmD3EwQUc9OOBytYRg853nFvhsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "TestModeDebugHeader",
+						"value": "true"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/deleteImage?imageid=7J5lEKb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"deleteImage"
+					],
+					"query": [
+						{
+							"key": "imageid",
+							"value": "7J5lEKb"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
